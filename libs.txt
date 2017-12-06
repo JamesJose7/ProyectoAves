@@ -1,0 +1,3 @@
+pip install psycopg2
+pip install django==1.8
+pip install ipython
