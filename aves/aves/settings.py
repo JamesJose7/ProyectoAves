@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'aves.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'DBAves',
+        'NAME': 'dbaves',
         'USER': 'useraves',
         'PASSWORD': 'passaves',
         'HOST': '127.0.0.1',
