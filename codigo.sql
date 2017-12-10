@@ -39,7 +39,7 @@ CREATE TABLE "Ubicacion" (
 	"longitudY" varchar(200) NOT NULL,
 	"latitudX" varchar(200) NOT NULL);
   
-CREATE TABLE "Localid" (
+CREATE TABLE "Localidad" (
   "id_localidad" serial NOT NULL PRIMARY KEY, 
   "nombre" varchar(200) NOT NULL,
   "toponim" varchar(200) NOT NULL,
@@ -63,6 +63,6 @@ ALTER TABLE "Ubicacion" ALTER COLUMN "id_localidad_id" DROP DEFAULT;
 ALTER TABLE "Ave" ADD CONSTRAINT "FK_ave_familia" FOREIGN KEY ("id_familia_id") REFERENCES "Familia" ("id_familia") DEFERRABLE INITIALLY DEFERRED;
 ALTER TABLE "Ave" ADD CONSTRAINT "FK_ave_autor" FOREIGN KEY ("id_autor_id") REFERENCES "Autores" ("id_autor") DEFERRABLE INITIALLY DEFERRED;
 ALTER TABLE "Ave" ADD CONSTRAINT "FK_ave_ubicacion" FOREIGN KEY ("id_ubicacion_id") REFERENCES "Ubicacion" ("id_ubicacion") DEFERRABLE INITIALLY DEFERRED;
-ALTER TABLE "Ubicacion" ADD CONSTRAINT "FK_ubicacion_localidad" FOREIGN KEY ("id_localidad_id") REFERENCES "Localid" ("id_localidad") DEFERRABLE INITIALLY DEFERRED;
+ALTER TABLE "Ubicacion" ADD CONSTRAINT "FK_ubicacion_localidad" FOREIGN KEY ("id_localidad_id") REFERENCES "Localidad" ("id_localidad") DEFERRABLE INITIALLY DEFERRED;
 
 
