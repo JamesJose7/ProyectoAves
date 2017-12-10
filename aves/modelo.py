@@ -64,7 +64,7 @@ class Familia(models.Model):
         db_table = 'Familia'
 
 
-class Localid(models.Model):
+class Localidad(models.Model):
     id_localidad = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=200)
     toponim = models.CharField(max_length=200)
@@ -73,7 +73,7 @@ class Localid(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'Localid'
+        db_table = 'Localidad'
 
 
 class Ubicacion(models.Model):
@@ -84,7 +84,7 @@ class Ubicacion(models.Model):
     utmwgs = models.CharField(max_length=200)
     longitudy = models.CharField(db_column='longitudY', max_length=200)  # Field name made lowercase.
     latitudx = models.CharField(db_column='latitudX', max_length=200)  # Field name made lowercase.
-    id_localidad = models.ForeignKey(Localid)
+    id_localidad = models.ForeignKey(Localidad)
 
     class Meta:
         managed = False
