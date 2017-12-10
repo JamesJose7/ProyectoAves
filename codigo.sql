@@ -54,8 +54,6 @@ ALTER TABLE "Ave" ADD COLUMN "id_endemismo_id" integer NOT NULL UNIQUE;
 ALTER TABLE "Ave" ALTER COLUMN "id_endemismo_id" DROP DEFAULT;
 ALTER TABLE "Ave" ADD COLUMN "id_familia_id" integer NOT NULL UNIQUE;
 ALTER TABLE "Ave" ALTER COLUMN "id_familia_id" DROP DEFAULT;
-ALTER TABLE "Ave" ADD COLUMN "id_migracion_id" integer NOT NULL UNIQUE;
-ALTER TABLE "Ave" ALTER COLUMN "id_migracion_id" DROP DEFAULT;
 ALTER TABLE "Ave" ADD COLUMN "id_ubicacion_id" integer NOT NULL;
 ALTER TABLE "Ave" ALTER COLUMN "id_ubicacion_id" DROP DEFAULT;
 ALTER TABLE "Ubicacion" ADD COLUMN "id_localidad_id" integer NOT NULL;
