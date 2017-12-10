@@ -46,7 +46,6 @@ class Ave(models.Model):
     id_bibliografia_id = models.IntegerField()
     id_endemismo_id = models.IntegerField(unique=True)
     id_familia = models.ForeignKey('Familia', unique=True)
-    id_migracion_id = models.IntegerField(unique=True)
     id_ubicacion = models.ForeignKey('Ubicacion')
 
     class Meta:
