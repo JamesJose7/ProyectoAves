@@ -3,127 +3,97 @@ from django.db import models
 
 
 # Create your models here.
-#Familia
-class familia(models.Model):
+
+class Autores(models.Model):
+    id_autor = models.AutoField(primary_key=True)
+    nombre = models.CharField(max_length=200)
+    bibliografia = models.CharField(max_length=200)
+    fecha = models.CharField(max_length=200)
+    year_of_collection = models.CharField(max_length=200)
+    year_of_public = models.CharField(max_length=200)
+    source = models.CharField(max_length=200)
+    def __str__(self):
+        return self.nombre
+    class Meta:
+        default_related_name = 'Autor'
+        verbose_name_plural = "Autores"
+        verbose_name = "Autor"
+        db_table = 'Autores'
+
+
+
+class Familia(models.Model):
     id_familia = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=200)
     orden = models.CharField(max_length=200)
-
+    def __str__(self):
+        return self.nombre
     class Meta:
-        managed = False
-        db_table = 'familia'
+        default_related_name = 'Familia'
+        verbose_name_plural = "Familias"
+        verbose_name = "Familia"
+        db_table = 'Familia'
 
-    def __unicode__(self):
-        return "%s - %s - %s" % (self.id_familia, self.nombre, self.orden)
-
-#Autor
-class autor(models.Model):
-    id_autor = models.AutoField(primary_key=True)
+class Localidad(models.Model):
+    id_localidad = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=200)
-
-    class Meta:
-        managed = False
-        db_table = 'autor'
-
-    def __unicode__(self):
-        return "%s - %s" % (self.id_autor, self.nombre)
-
-#Bibliografia
-class bibliografia(models.Model):
-  id_bilbiografia = models.AutoField(primary_key=True)
-  bibliografia = models.TextField()
-
-  class Meta:
-        managed = False
-        db_table = 'bibliografia'
-
-  def __unicode__(self):
-        return "%s - %s" % (self.id_bilbiografia, self.bibliografia)
-
-#Migracion
-class migracion(models.Model):
-    id_migracion = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length=200)
-
-    class Meta:
-        managed = False
-        db_table = 'migracion'
-
-    def __unicode__(self):
-        return "%s - %s" % (self.id_migracion, self.nombre)
-
-#UICN
-class uicn(models.Model):
-    id_familia = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length=200)
-
-    class Meta:
-        managed = False
-        db_table = 'uicn'
-
-    def __unicode__(self):
-        return "%s - %s" % (self.id_familia, self.nombre)
-
-#Endemismo
-class endemismo(models.Model):
-    id_endemismo = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length=200)
-
-    class Meta:
-        managed = False
-        db_table = 'endemismo'
-
-    def __unicode__(self):
-        return "%s - %s" % (self.id_endemismo, self.nombre)
-
-#Ubicacion
-class ubicacion(models.Model):
-    id_ubicacion = models.AutoField(primary_key=True)
+    toponim = models.CharField(max_length=200)
     pais = models.CharField(max_length=200)
     provincia = models.CharField(max_length=200)
-    localidad = models.CharField(max_length=200)
-    toponim = models.CharField(max_length=200)
-    longitud = models.CharField(max_length=200)
-    latitud = models.CharField(max_length=200)
-    gps = models.CharField(max_length=200)
-    latitudMax = models.CharField(max_length=200)
-    latitudMin = models.CharField(max_length=200)
-    id_ave = models.CharField(max_length=200)
-
+    def __str__(self):
+        return self.nombre
     class Meta:
-        managed = False
-        db_table = 'ubicacion'
+        default_related_name = 'Localidad'
+        verbose_name_plural = "Localidades"
+        verbose_name = "Localidad"
+        db_table = 'Localidad'
 
-    def __unicode__(self):
-        return "%s - %s - %s - %s - %s - %s - %s - %s - %s - %s - %s" % (self.id_ubicacion, self.pais, self.provincia, self.localidad,
-                           self.toponim, self.longitud, self.latitud, self.gps, self.latitudMax,
-                           self.latitudMin, self.id_ave)
+class Ubicacion(models.Model):
+    id_ubicacion = models.AutoField(primary_key=True)
+    cordinate = models.CharField(max_length=200)
+    altitudmax = models.CharField(db_column='altitudMax', max_length=200)  # Field name made lowercase.
+    altitudmin = models.CharField(db_column='altitudMin', max_length=200)  # Field name made lowercase.
+    utmwgs = models.CharField(max_length=200)
+    longitudy = models.CharField(db_column='longitudY', max_length=200)  # Field name made lowercase.
+    latitudx = models.CharField(db_column='latitudX', max_length=200)  # Field name made lowercase.
+    id_localidad = models.ForeignKey(Localidad)
+    def __str__(self):
+        return self.cordinate
+    class Meta:
+        default_related_name = 'Ubicacion'
+        verbose_name_plural = "Ubicaciones"
+        verbose_name = "Ubicacion"
+        db_table = 'Ubicacion'
 
-# Tabla aves
-class ave(models.Model):
-    id = models.AutoField(primary_key=True)
+
+
+
+class Ave(models.Model):
+    id_ave = models.AutoField(primary_key=True)
     codigo = models.CharField(max_length=200)
     especie = models.CharField(max_length=200)
     synonim = models.CharField(max_length=200)
     nombre = models.CharField(max_length=200)
-    morfometres = models.CharField(max_length=200)
-    ecology = models.CharField(max_length=200)
-    behaviour = models.CharField(max_length=200)
-    yearPublished = models.CharField(max_length=200)
-    yearCollection= models.CharField(max_length=200)
-    date = models.CharField(max_length=200)
-    call = models.CharField(max_length=200)
+    morfometria = models.CharField(max_length=200)
+    ecologia = models.CharField(max_length=200)
+    comportamiento = models.CharField(max_length=200)
+    clase = models.CharField(max_length=200)
+    llamar = models.CharField(max_length=200)
+    uicn = models.CharField(max_length=200)
+    endemismo = models.CharField(max_length=200)
     observacion = models.CharField(max_length=200)
-    id_familia = models.OneToOneField(familia)
-    id_endemismo = models.OneToOneField(endemismo)
-    id_migracion = models.OneToOneField(migracion)
-    id_autor = models.ForeignKey(autor)
-    id_bibliografia = models.ForeignKey(bibliografia)
-    id_ubicacion = models.ForeignKey(ubicacion)
+    migracion = models.CharField(max_length=200)
+    ecosistema = models.CharField(max_length=200)
+    id_autor = models.ForeignKey(Autores)
+    id_bibliografia_id = models.IntegerField()
+    id_familia = models.OneToOneField(Familia, unique=True)
+    id_ubicacion = models.ForeignKey(Ubicacion)
 
+    def __str__(self):
+        return self.especie
     class Meta:
-        managed = False
-        db_table = 'ave'
+        default_related_name = 'Ave'
+        verbose_name_plural = "Aves"
+        verbose_name = "Ave"
+        db_table = 'Ave'
 
-    def __unicode__(self):
-        return "%s - %s - %s - %s - %s - %s - %s - %s - %s - %s - %s - %s - %s - %s - %s - %s - %s - %s" % (self.id, self.codigo, self.especie, self.synonim, self.nombre, self.morfometres, self.ecology, self.ecology, self.behaviour, self.yearPublished, self.yearCollection, self.date, self.call, self.observacion, self.id_familia, self.id_endemismo, self.id_migracion, self.id_autor, self.id_bibliografia)
