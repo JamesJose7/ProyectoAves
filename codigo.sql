@@ -20,7 +20,7 @@ CREATE TABLE "Autores" (
   "id_autor" serial NOT NULL PRIMARY KEY, 
   "nombre" varchar(200),
   "bibliografia" varchar(200),
-  "fecha" date ,
+  "fecha" varchar(200),
   "year_of_collection" varchar(200),
   "year_of_public" varchar(200),
   "source" varchar(200));
