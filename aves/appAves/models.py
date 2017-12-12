@@ -12,8 +12,8 @@ class Autores(models.Model):
     year_of_collection = models.CharField(max_length=200,null=True)
     year_of_public = models.CharField(max_length=200,null=True)
     source = models.CharField(max_length=200,null=True)
-    def __str__(self):
-        return self.nombre
+    def __unicode__(self):
+        return "%s" % self.nombre
     class Meta:
         default_related_name = 'Autor'
         verbose_name_plural = "Autores"
@@ -26,8 +26,8 @@ class Familia(models.Model):
     id_familia = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=200,null=True)
     orden = models.CharField(max_length=200,null=True)
-    def __str__(self):
-        return self.nombre
+    def __unicode__(self):
+        return "%s" % self.nombre
     class Meta:
         default_related_name = 'Familia'
         verbose_name_plural = "Familias"
@@ -40,8 +40,8 @@ class Localidad(models.Model):
     toponim = models.CharField(max_length=200,null=True)
     pais = models.CharField(max_length=200,null=True)
     provincia = models.CharField(max_length=200,null=True)
-    def __str__(self):
-        return self.nombre
+    def __unicode__(self):
+        return "%s" % self.nombre
     class Meta:
         default_related_name = 'Localidad'
         verbose_name_plural = "Localidades"
@@ -57,8 +57,8 @@ class Ubicacion(models.Model):
     longitudy = models.CharField(db_column='longitudY', max_length=200,null=True)  # Field name made lowercase.
     latitudx = models.CharField(db_column='latitudX', max_length=200,null=True)  # Field name made lowercase.
     id_localidad = models.ForeignKey(Localidad)
-    def __str__(self):
-        return self.cordinate
+    def __unicode__(self):
+        return "%s" % self.cordinate
     class Meta:
         default_related_name = 'Ubicacion'
         verbose_name_plural = "Ubicaciones"
@@ -88,8 +88,9 @@ class Ave(models.Model):
     id_familia = models.OneToOneField(Familia, unique=True)
     id_ubicacion = models.ForeignKey(Ubicacion)
 
-    def __str__(self):
-        return self.especie
+    def __unicode__(self):
+        return "%s" % self.id_ave
+
     class Meta:
         default_related_name = 'Ave'
         verbose_name_plural = "Aves"

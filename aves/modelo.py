@@ -47,6 +47,10 @@ class Ave(models.Model):
     id_familia = models.ForeignKey('Familia', unique=True)
     id_ubicacion = models.ForeignKey('Ubicacion')
 
+    def __unicode__(self):
+        # return "%s" % self.id_ave
+        return "s"
+
     class Meta:
         managed = False
         db_table = 'Ave'
