@@ -1,10 +1,3 @@
-CREATE TABLE "Localidad"(
-   id_localidad     INTEGER  NOT NULL PRIMARY KEY 
-  ,pais             VARCHAR(2)
-  ,provincia        VARCHAR(31) NOT NULL
-  ,nombre           VARCHAR(77)
-  ,toponim          VARCHAR(28)
-);
 INSERT INTO "Localidad"(id_localidad,pais,provincia,nombre,toponim) VALUES (1,'EC','El Oro','Piñas','Buenaventura');
 INSERT INTO "Localidad"(id_localidad,pais,provincia,nombre,toponim) VALUES (2,'EC','El Oro','Piñas','Buenaventura');
 INSERT INTO "Localidad"(id_localidad,pais,provincia,nombre,toponim) VALUES (3,'EC','El Oro','Piñas','Buenaventura');

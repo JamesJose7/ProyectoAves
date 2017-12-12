@@ -1,12 +1,3 @@
-CREATE TABLE "Autores"(
-   id_autor            INTEGER  NOT NULL PRIMARY KEY 
-  ,source              VARCHAR(12)
-  ,year_of_public      VARCHAR(8)
-  ,year_of_collection  VARCHAR(10)
-  ,fecha               DATE 
-  ,nombre              VARCHAR(25)
-  ,bibliografia        VARCHAR(442)
-);
 INSERT INTO "Autores"(id_autor,source,year_of_public,year_of_collection,fecha,nombre,bibliografia) VALUES (1,'Field data','2008','2007','2007','Ridgely R.','Ridgely R. 2008. The birds of Fundacion Jocotoco''s Buenaventura Reserve. In Fundación Jocotoco webpage.');
 INSERT INTO "Autores"(id_autor,source,year_of_public,year_of_collection,fecha,nombre,bibliografia) VALUES (2,'Field data','2008','2007','2007','Ridgely R.','Ridgely R. 2008. The birds of Fundacion Jocotoco''s Buenaventura Reserve. In Fundación Jocotoco webpage.');
 INSERT INTO "Autores"(id_autor,source,year_of_public,year_of_collection,fecha,nombre,bibliografia) VALUES (3,'Field data','2008','2007','2007','Ridgely R.','Ridgely R. 2008. The birds of Fundacion Jocotoco''s Buenaventura Reserve. In Fundación Jocotoco webpage.');

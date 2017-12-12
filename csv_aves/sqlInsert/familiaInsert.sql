@@ -1,8 +1,3 @@
-CREATE TABLE "Familia"(
-   id_familia INTEGER  NOT NULL PRIMARY KEY 
-  ,nombre VARCHAR(17) NOT NULL
-  ,orden  VARCHAR(19) NOT NULL
-);
 INSERT INTO "Familia"(id_familia,nombre,orden) VALUES (1,'Tinamidae','Tinamiformes');
 INSERT INTO "Familia"(id_familia,nombre,orden) VALUES (2,'Cracidae','Galliformes');
 INSERT INTO "Familia"(id_familia,nombre,orden) VALUES (3,'Cracidae','Galliformes');

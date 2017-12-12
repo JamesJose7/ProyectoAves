@@ -1,15 +1,3 @@
-CREATE TABLE "Ubicacion"(
-   id_ubicacion      INTEGER  NOT NULL PRIMARY KEY 
-  ,utmwgs            VARCHAR(3)
-  ,"latitudX"          NUMERIC(16,9) NOT NULL
-  ,"longitudY"         NUMERIC(14,8) NOT NULL
-  ,cordinate         VARCHAR(3)
-  ,altitud           INTEGER 
-  ,"altitudMin"        INTEGER 
-  ,"altitudMax"        INTEGER 
-  ,id_localidad_id   INTEGER  NOT NULL
-  ,id_ave            INTEGER  NOT NULL
-);
 INSERT INTO "Ubicacion"(id_ubicacion,utmwgs,"latitudX","longitudY",cordinate,"altitudMin","altitudMax",id_localidad_id) VALUES (1,'WGS',-3.66,-79.771,NULL,500,1150,1);
 INSERT INTO "Ubicacion"(id_ubicacion,utmwgs,"latitudX","longitudY",cordinate,"altitudMin","altitudMax",id_localidad_id) VALUES (2,'WGS',-3.66,-79.771,NULL,500,1150,2);
 INSERT INTO "Ubicacion"(id_ubicacion,utmwgs,"latitudX","longitudY",cordinate,"altitudMin","altitudMax",id_localidad_id) VALUES (3,'WGS',-3.66,-79.771,NULL,500,1150,3);
