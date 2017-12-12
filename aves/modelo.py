@@ -44,9 +44,12 @@ class Ave(models.Model):
     ecosistema = models.CharField(max_length=200)
     id_autor = models.ForeignKey(Autores)
     id_bibliografia_id = models.IntegerField()
-    id_endemismo_id = models.IntegerField(unique=True)
     id_familia = models.ForeignKey('Familia', unique=True)
     id_ubicacion = models.ForeignKey('Ubicacion')
+
+    def __unicode__(self):
+        # return "%s" % self.id_ave
+        return "s"
 
     class Meta:
         managed = False
