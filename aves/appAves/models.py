@@ -85,7 +85,7 @@ class Ave(models.Model):
     migracion = models.CharField(max_length=200,null=True)
     ecosistema = models.CharField(max_length=200,null=True)
     id_autor = models.ForeignKey(Autores)
-    id_familia = models.OneToOneField(Familia, unique=True)
+    id_familia = models.ForeignKey(Familia)
     id_ubicacion = models.ForeignKey(Ubicacion)
 
     def __unicode__(self):
