@@ -20,18 +20,14 @@ def listado_aves(request):
     diccionario = {'list_aves': aves}
     return render(request, 'listado_aves.html', diccionario,
         context_instance=RequestContext(request))
-#
-# def materia(request, id):
-#     """
-#         obtengo las materias
-#     """
-#     materia = Ave.objects.get(pk=id)
-#     numero_paralelos = Ave.objects.filter(la_materia=materia).count()
-#     numero_estudiantes = Estudiante.objects.filter(
-#             paraleloestudiante__la_paralelo__la_materia=materia).count()
-#     diccionario = {'materia': materia, 'numero_paralelos': numero_paralelos,
-#                    'mensaje': 'Mensaje de la pantalla',
-#                    'numero_estudiantes': numero_estudiantes}
-#     return render(request, 'materia.html', diccionario,
-#                   context_instance=RequestContext(request))
-#
+
+def ave(request, id):
+    """
+        obtengo las aves
+    """
+    ave = Ave.objects.get(pk=id)
+
+    diccionario = {'ave': ave}
+    return render(request, 'ave.html', diccionario,
+                  context_instance=RequestContext(request))
+
