@@ -1,11 +1,31 @@
 {% extends "master.html" %}
-
+{% block titulo %}Listado de Aves{% endblock %}
 
 {% block contenido %}
+    <div class="container">
+    <div class="col-md-10">
     {% if list_aves %}
-        {% for ave in list_aves %}
-        <li>{{ ave.nombre }}</li>
-        {% endfor %}
+        <table>
+            <tr>
+                <td><strong>Codigo</strong></td>
+                <td><strong>Nombre</strong></td>
+                <td><strong>Morfometria</strong></td>
+                <td><strong>Ver</strong></td>
 
+            </tr>
+            {% for ave in list_aves %}
+
+
+
+                <tr>
+                    <td>{{ ave.id_ave }}</td>
+                    <td>{{ ave.nombre }}</td>
+                    <td>{{ ave.morfometria }}</td>
+                  <td><a href="{% url 'ave' ave.id_ave %}">ver</a></td>
+                </tr>
+            {% endfor %}
+        </table>
     {% endif %}
+    </div>
+    </div>
 {% endblock %}
