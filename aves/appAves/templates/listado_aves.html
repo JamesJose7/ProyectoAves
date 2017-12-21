@@ -1,0 +1,11 @@
+{% extends "master.html" %}
+
+
+{% block contenido %}
+    {% if list_aves %}
+        {% for ave in list_aves %}
+        <li>{{ ave.nombre }}</li>
+        {% endfor %}
+
+    {% endif %}
+{% endblock %}
