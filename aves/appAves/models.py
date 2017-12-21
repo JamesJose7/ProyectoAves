@@ -6,12 +6,12 @@ from django.db import models
 
 class Autores(models.Model):
     id_autor = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length=200,null=True)
-    bibliografia = models.CharField(max_length=200,null=True)
-    fecha = models.CharField(max_length=200,null=True)
-    year_of_collection = models.CharField(max_length=200,null=True)
-    year_of_public = models.CharField(max_length=200,null=True)
-    source = models.CharField(max_length=200,null=True)
+    nombre = models.CharField(max_length=300,null=True)
+    bibliografia = models.CharField(max_length=300,null=True)
+    fecha = models.CharField(max_length=300,null=True)
+    year_of_collection = models.CharField(max_length=300,null=True)
+    year_of_public = models.CharField(max_length=300,null=True)
+    source = models.CharField(max_length=300,null=True)
     def __unicode__(self):
         return "%s" % self.nombre
     class Meta:
@@ -24,8 +24,8 @@ class Autores(models.Model):
 
 class Familia(models.Model):
     id_familia = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length=200,null=True)
-    orden = models.CharField(max_length=200,null=True)
+    nombre = models.CharField(max_length=300,null=True)
+    orden = models.CharField(max_length=300,null=True)
     def __unicode__(self):
         return "%s" % self.nombre
     class Meta:
@@ -36,10 +36,10 @@ class Familia(models.Model):
 
 class Localidad(models.Model):
     id_localidad = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length=200,null=True)
-    toponim = models.CharField(max_length=200,null=True)
-    pais = models.CharField(max_length=200,null=True)
-    provincia = models.CharField(max_length=200,null=True)
+    nombre = models.CharField(max_length=300,null=True)
+    toponim = models.CharField(max_length=300,null=True)
+    pais = models.CharField(max_length=300,null=True)
+    provincia = models.CharField(max_length=300,null=True)
     def __unicode__(self):
         return "%s" % self.nombre
     class Meta:
@@ -50,12 +50,12 @@ class Localidad(models.Model):
 
 class Ubicacion(models.Model):
     id_ubicacion = models.AutoField(primary_key=True)
-    cordinate = models.CharField(max_length=200,null=True)
-    altitudmax = models.CharField(db_column='altitudMax', max_length=200,null=True)  # Field name made lowercase.
-    altitudmin = models.CharField(db_column='altitudMin', max_length=200,null=True)  # Field name made lowercase.
-    utmwgs = models.CharField(max_length=200,null=True)
-    longitudy = models.CharField(db_column='longitudY', max_length=200,null=True)  # Field name made lowercase.
-    latitudx = models.CharField(db_column='latitudX', max_length=200,null=True)  # Field name made lowercase.
+    cordinate = models.CharField(max_length=300,null=True)
+    altitudmax = models.CharField(db_column='altitudMax', max_length=300,null=True)  # Field name made lowercase.
+    altitudmin = models.CharField(db_column='altitudMin', max_length=300,null=True)  # Field name made lowercase.
+    utmwgs = models.CharField(max_length=300,null=True)
+    longitudy = models.CharField(db_column='longitudY', max_length=300,null=True)  # Field name made lowercase.
+    latitudx = models.CharField(db_column='latitudX', max_length=300,null=True)  # Field name made lowercase.
     id_localidad = models.ForeignKey(Localidad)
     def __unicode__(self):
         return "%s" % self.cordinate
@@ -70,20 +70,20 @@ class Ubicacion(models.Model):
 
 class Ave(models.Model):
     id_ave = models.AutoField(primary_key=True)
-    codigo = models.CharField(max_length=200,null=True)
-    especie = models.CharField(max_length=200,null=True)
-    synonim = models.CharField(max_length=200,null=True)
-    nombre = models.CharField(max_length=200,null=True)
-    morfometria = models.CharField(max_length=200,null=True)
-    ecologia = models.CharField(max_length=200,null=True)
-    comportamiento = models.CharField(max_length=200,null=True)
-    clase = models.CharField(max_length=200,null=True)
-    llamar = models.CharField(max_length=200,null=True)
-    uicn = models.CharField(max_length=200,null=True)
-    endemismo = models.CharField(max_length=200,null=True)
-    observacion = models.CharField(max_length=200,null=True)
-    migracion = models.CharField(max_length=200,null=True)
-    ecosistema = models.CharField(max_length=200,null=True)
+    codigo = models.CharField(max_length=300,null=True)
+    especie = models.CharField(max_length=300,null=True)
+    synonim = models.CharField(max_length=300,null=True)
+    nombre = models.CharField(max_length=300,null=True)
+    morfometria = models.CharField(max_length=300,null=True)
+    ecologia = models.CharField(max_length=300,null=True)
+    comportamiento = models.CharField(max_length=300,null=True)
+    clase = models.CharField(max_length=300,null=True)
+    llamar = models.CharField(max_length=300,null=True)
+    uicn = models.CharField(max_length=300,null=True)
+    endemismo = models.CharField(max_length=300,null=True)
+    observacion = models.CharField(max_length=300,null=True)
+    migracion = models.CharField(max_length=300,null=True)
+    ecosistema = models.CharField(max_length=300,null=True)
     id_autor = models.ForeignKey(Autores)
     id_familia = models.ForeignKey(Familia)
     id_ubicacion = models.ForeignKey(Ubicacion)
