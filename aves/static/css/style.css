@@ -13,16 +13,19 @@ td, th {
 tr:nth-child(even) {
     background-color: #dddddd;
 }
-body{
+
+body {
     background-color: lightblue;
 }
-header{
+
+header {
     background: lightgreen;
     text-align: center;
     padding: 0.5px;
 }
-nav a:hover{
+
+nav a:hover {
     background: yellow;
-    color:white;
-    border-bottom: 2px solid ;
+    color: white;
+    border-bottom: 2px solid;
 }

@@ -3,29 +3,21 @@
 
 {% block contenido %}
     <div class="container">
-    <div class="col-md-10">
-    {% if list_aves %}
-        <table>
-            <tr>
-                <td><strong>Codigo</strong></td>
-                <td><strong>Nombre</strong></td>
-                <td><strong>Morfometria</strong></td>
-                <td><strong>Ver</strong></td>
+        <div class="col-md-10">
+            {% if list_aves %}
 
-            </tr>
-            {% for ave in list_aves %}
+                    {% for ave in list_aves %}
+                        <h2> Nombre cientifico: {{ ave.nombre }}</h2>
+                        <h3>Especie: <i> {{ ave.especie }}</i></h3>
+                        <h3>Clase: {{ ave.clase }} | UICN: {{ ave.uicn }}  </h3>
+                        <h4>Autor: {{ ave.id_autor }}</h4>
+                        <p></p>
+                        <a href="{% url 'ave' ave.id_ave %}">ver</a>
+                        <img src="/static/img/parte-del-ave.jpg" class="img-responsive" alt="{{ ave.nombre }}">
 
+                    {% endfor %}
 
-
-                <tr>
-                    <td>{{ ave.id_ave }}</td>
-                    <td>{{ ave.nombre }}</td>
-                    <td>{{ ave.morfometria }}</td>
-                  <td><a href="{% url 'ave' ave.id_ave %}">ver</a></td>
-                </tr>
-            {% endfor %}
-        </table>
-    {% endif %}
-    </div>
+            {% endif %}
+        </div>
     </div>
 {% endblock %}
