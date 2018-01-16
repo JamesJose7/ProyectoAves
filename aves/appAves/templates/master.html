@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,7 +8,8 @@
     <title>{% block titulo %}{% endblock %} | Proyecto GP Aves</title>
 
     <!-- Bootstrap -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static '/static/css/style.css' %}">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -47,10 +49,31 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-{% block contenido %}
-    <h1>Hello, world!</h1>
 
-{% endblock %}
+
+<header>
+    <h1>Visualizaion de datos INEC</h1>
+</header>
+<nav>
+    <a href="">Inicio</a>
+    <a href="">Catalogo</a>
+    <a href="">Estadisticas</a>
+    <a href="">Mapa</a>
+    <a href="">About</a>
+</nav>
+<main>
+    {% block contenido %}
+
+    {% endblock %}
+    <section>
+        <h2>datos</h2>
+    </section>
+</main>
+
+<footer>
+    <h6>Derechos reservados</h6>
+</footer>
+
 </body>
 </html>
 

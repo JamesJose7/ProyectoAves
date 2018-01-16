@@ -10,7 +10,11 @@ def index(request):
     diccionario = {'saludo': "Hola Mundo"}
     return render(request, 'index.html', diccionario,
         context_instance=RequestContext(request))
-
+def mapa_view(request):
+    lugaresOBJ = lugares.objects.all()
+    diccionario = {'lugares': lugaresOBJ}
+    return render(request, 'mapa.html', diccionario,
+                  context_instance=RequestContext(request))
 
 def listado_aves(request):
     """
