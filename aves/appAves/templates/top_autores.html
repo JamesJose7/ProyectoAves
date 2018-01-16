@@ -1,0 +1,17 @@
+{% extends "master.html" %}
+{% block titulo %}Top Autores{% endblock %}
+
+{% block contenido %}
+    <div class="container">
+        <div class="col-md-10">
+            {% if lst_autores %}
+
+                {% for autor in lst_autores %}
+                    <p>{{ autor.nombre }} : 10</p>
+
+                {% endfor %}
+
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

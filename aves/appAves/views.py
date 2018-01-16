@@ -34,4 +34,20 @@ def ave(request, id):
     diccionario = {'ave': ave}
     return render(request, 'ave.html', diccionario,
                   context_instance=RequestContext(request))
+def top_autores(request):
+    """
+    obtengo el top 10 de autores con mas publicaciones
+    """
+    autores = Autores.objects.all()
+    diccionario = {'lst_autores': autores}
+    return render(request, 'top_autores.html', diccionario,
+                  context_instance=RequestContext(request))
+
+def about_view(request):
+    """
+    render about
+    """
+
+    return render(request, 'about.html',context_instance=RequestContext(request))
+
 

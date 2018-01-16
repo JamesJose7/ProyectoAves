@@ -1,0 +1,32 @@
+{% extends "master.html" %}
+{% block titulo %}MAPA{% endblock %}
+
+{% block contenido %}
+    <n2>MAPA</n2>
+    <div class="container">
+        <div class="col-md-5 col-md-offset-3">
+            <table border="1">
+                <tr>
+                    <th>Lugar</th>
+                    <th>Latitud</th>
+                    <th>Longitud</th>
+                    <th>Descripcion</th>
+                </tr>
+                 {% if lugares %}
+
+                {% for lugar in lugares %}
+                    <tr>
+                        <td>{{ lugar.nombre }}</td>
+                        <td>{{ lugar.latidud }}</td>
+                        <td>{{ lugar.longitud }}</td>
+                        <td>{{ lugar.descripcion }}</td>
+
+
+                    </tr>
+                {% endfor %}
+            {% endif %}
+            </table>
+
+        </div>
+    </div>
+{% endblock %}
