@@ -10,5 +10,6 @@ urlpatterns = patterns('',
                        url(r'top/', views.top_autores, name='top_autores'),
                        url(r'about/', views.about_view, name='about'),
                        url(r'autor/(?P<id>\d+)$', views.autor, name='autor'),
+                       url(r'funcion_ajax_buscador/$', views.funcion_ajax_buscador, name='funcion_ajax_buscador'),
 
                        )

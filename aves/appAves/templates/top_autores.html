@@ -1,22 +1,61 @@
 {% extends "master.html" %}
-{% block titulo %}Top Autores{% endblock %}
-
+{% block titulo %}{{ titulo }}{% endblock %}
+{% block titulo_pag %}   {{ titulo }} {% endblock %}
 {% block contenido %}
     <div class="container">
         <div class="col-md-10">
+
             {% if lst_autores %}
 
                 {% for autor in lst_autores %}
                     <h2>{{ autor.nombre }}</h2>
 
                 {% endfor %}
-                {% for autor in conteo %}
-                    <p> {{ autor.nombre}}</p>
-
+                {% for cont in conteo %}
+                    <h2> {{ cont.id_autor_id__count }}</h2>
                 {% endfor %}
-
-
             {% endif %}
         </div>
     </div>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            console.log('llegando');
+            $.ajax({
+                        method:"post",
+                        url: '{% url "appAves.views.funcion_ajax_buscador" %}',
+                        data: {
+                            'valor': 'test',
+                        },
+                        //beforeSend:function() {},
+                        success:function(data) {
+                            console.log(data);
+                            var autores = data.autores;
+                            var aux = []
+                            for (var i=0;i<autores.length;i++){
+                                aux.push(autores[i]);
+                            }
+
+                            var values = data.values;
+                             console.log(autores("nombre"));
+                        }
+                    });
+        });
+
+        {#   jQuery(document).ready(function ($) {#}
+        {#    console.log('llegando');#}
+        {#    $.ajax({#}
+        {#                method:"post",#}
+        {#                url: '{% url "appAves.views.funcion_ajax_buscador" %}',#}
+        {#                data: {#}
+        {#                    'valor': 'test',#}
+        {#                },#}
+        {#                //beforeSend:function() {},#}
+        {#                success:function(data) {#}
+        {#                    console.log(data);#}
+        {#                }#}
+        {#            });#}
+        {#});#}
+
+
+    </script>
 {% endblock %}

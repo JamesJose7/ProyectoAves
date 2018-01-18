@@ -1,7 +1,10 @@
 from django.shortcuts import render
 from django.template import RequestContext
-
+from django.db.models import Count
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
 from appAves.models import *
+import json
 
 
 def index(request):
@@ -24,8 +27,8 @@ def listado_aves(request):
         obtengo las aves
     """
     aves = Ave.objects.all().order_by('nombre')[0:50]
-    titulo= "Galeria Aves"
-    diccionario = {'list_aves': aves,'titulo':titulo}
+    titulo = "Galeria Aves"
+    diccionario = {'list_aves': aves, 'titulo': titulo}
     return render(request, 'listado_aves.html', diccionario,
                   context_instance=RequestContext(request))
 
@@ -40,6 +43,7 @@ def ave(request, id):
     return render(request, 'ave.html', diccionario,
                   context_instance=RequestContext(request))
 
+
 def autor(request, id):
     """
         obtengo un autor en especifico
@@ -51,19 +55,47 @@ def autor(request, id):
                   context_instance=RequestContext(request))
 
 
-
 def top_autores(request):
     """
     obtengo el top 10 de autores con mas publicaciones
     """
-    autores = Autores.objects.all()
+    titulo = "Top 10 Autores con mas publicaciones"
+    autores = Autores.objects.all().values('nombre')[:10]
+    conteo = Ave.objects.all().values('id_autor')[:10].annotate(Count("id_autor_id"))
+    # autores_aux = json.dumps([{'autor': o.nombre} for o in autores])
 
 
-    conteo = Ave.objects.all()
+    # autor_count = {}
+    # for autor in autores:
+    #     autor_count[autor.nombre] = 0
+    #
+    # for cont in conteo:
+    #     for autor in autores:
+    #         if cont.nombre == autor.nombre:
+    #             autor_count[autor.nombre] = autor_count[autor.nombre] + 1
+    #             print()
 
-    diccionario = {'lst_autores': autores, 'conteo': conteo}
+
+    diccionario = {'lst_autores': autores,"conteo":conteo,"titulo":titulo}
     return render(request, 'top_autores.html', diccionario,
-                  context_instance=RequestContext(request))
+              context_instance=RequestContext(request))
+
+@csrf_exempt
+def funcion_ajax_buscador(request):
+    """
+    """
+    if request.is_ajax() == True:
+        req = {}
+        letra = request.POST.getlist('valor')[0]
+        autores = Autores.objects.all().values('nombre')[:10]
+        conteo = Ave.objects.all().values('id_autor')[:10].annotate(Count("id_autor_id"))
+
+        req['mensaje'] = 'Correcto .... cargando datos '
+        req['autores'] = {'results':list(autores)}
+        req['values'] = {'values':list(conteo)}
+
+    return JsonResponse(req, safe=False)
+
 
 
 def about_view(request):
