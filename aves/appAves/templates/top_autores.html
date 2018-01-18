@@ -7,9 +7,14 @@
             {% if lst_autores %}
 
                 {% for autor in lst_autores %}
-                    <p>{{ autor.nombre }} : 10</p>
+                    <h2>{{ autor.nombre }}</h2>
 
                 {% endfor %}
+                {% for autor in conteo %}
+                    <p> {{ autor.nombre}}</p>
+
+                {% endfor %}
+
 
             {% endif %}
         </div>

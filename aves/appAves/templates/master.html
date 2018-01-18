@@ -42,30 +42,28 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
 
-                </li>
+                <li><a href="/aves/">Inicio</a></li>
+                <li><a href="/aves/listado/">Catalogo</a></li>
+                <li><a href="/aves/top/">Estadisticas</a></li>
+                <li><a href="">Mapa</a></li>
+                <li><a href="/aves/about/">About</a></li>
             </ul>
 
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-
-
 <header>
-    <h1>Visualizaion de datos INEC</h1>
+    <h1> {% block titulo_pag %} {% endblock %}</h1>
 </header>
 <nav>
-    <a href="/aves/">Inicio</a>
-    <a href="/aves/listado/">Catalogo</a>
-    <a href="/aves/top/">Estadisticas</a>
-    <a href="">Mapa</a>
-    <a href="/aves/about/">About</a>
+
 </nav>
 <main>
     {% block contenido %}
 
     {% endblock %}
     <section>
-        <h2>datos</h2>
+
     </section>
 </main>
 

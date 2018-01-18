@@ -1,23 +1,25 @@
 {% extends "master.html" %}
 {% block titulo %}Listado de Aves{% endblock %}
-
+{% block titulo_pag %} {{ titulo }} {% endblock %}
 {% block contenido %}
     <div class="container">
-        <div class="col-md-10">
-            {% if list_aves %}
-
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                {% if list_aves %}
+                    <div class="row ">
                     {% for ave in list_aves %}
-                        <h2> Nombre cientifico: {{ ave.nombre }}</h2>
-                        <h3>Especie: <i> {{ ave.especie }}</i></h3>
-                        <h3>Clase: {{ ave.clase }} | UICN: {{ ave.uicn }}  </h3>
-                        <h4>Autor: {{ ave.id_autor }}</h4>
-                        <p></p>
-                        <a href="{% url 'ave' ave.id_ave %}">ver</a>
-                        <img src="/static/img/parte-del-ave.jpg" class="img-responsive" alt="{{ ave.nombre }}">
+                        <div class="col-md-6">
+                            <h2> Nombre cientifico: {{ ave.nombre }}</h2>
+                            <h3>Especie: <i> {{ ave.especie }}</i></h3>
+                            <h3>Clase: {{ ave.clase }} | UICN: {{ ave.uicn }}  </h3>
+                            <h4>Autor: <a href="{% url 'autor' ave.id_autor_id %}">{{ ave.id_autor }}</a></h4>
+                            <a href="{% url 'ave' ave.id_ave %}"><img src="/static/img/parte-del-ave.jpg" class="img-responsive" alt="{{ ave.nombre }} " hr></a>
 
+                        </div>
                     {% endfor %}
-
-            {% endif %}
+                {% endif %}
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}
