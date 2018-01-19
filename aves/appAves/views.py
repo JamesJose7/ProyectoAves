@@ -63,22 +63,19 @@ def top_autores(request):
     titulo = "Top 10 Autores con mas publicaciones"
     autores = Autores.objects.all().values('nombre')[:10]
     conteo = Ave.objects.all().values('id_autor')[:10].annotate(Count("id_autor_id"))
-    # autores_aux = json.dumps([{'autor': o.nombre} for o in autores])
-
-
-    # autor_count = {}
-    # for autor in autores:
-    #     autor_count[autor.nombre] = 0
-    #
-    # for cont in conteo:
-    #     for autor in autores:
-    #         if cont.nombre == autor.nombre:
-    #             autor_count[autor.nombre] = autor_count[autor.nombre] + 1
-    #             print()
-
-
     diccionario = {'lst_autores': autores,"conteo":conteo,"titulo":titulo}
     return render(request, 'top_autores.html', diccionario,
+              context_instance=RequestContext(request))
+
+
+def trabajos_relacionados(request,id):
+    """
+    obtengo los trabajos relacionados del autor
+    """
+    aves = Ave.objects.filter(id_autor_id=id)
+    titulo = "Trabajos relacionados"
+    diccionario = {'list_aves': aves,'titulo':titulo}
+    return render(request, 'listado_aves.html', diccionario,
               context_instance=RequestContext(request))
 
 @csrf_exempt
