@@ -1,3 +1,136 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+*{
+-webkit-box-sizing:border-box;
+-moz-box-sizing:border-box;
+box-sizing:border-box;
+}
+
+/* base styles */
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+	font-family: 'Nunito', sans-serif;
+    position: relative;
+    margin: 0;
+    padding-bottom: 6rem;
+    min-height: 100%;
+}
+
+header {
+	background: white;
+    text-align: center;
+    padding: 0.5px;
+}
+
+#nav {
+	background: #4CAF50;
+	border: none;
+	border-radius: 0;
+	margin: 0;
+}
+
+#nav ul a {
+	color: #212121;
+	border-bottom: 2px solid #4CAF50;
+}
+
+#brand {
+	color: #212121;
+	font-size: 1.3em;
+	border-bottom: 2px solid #4CAF50;
+	display: inline-block;
+	height: 20px;
+}
+
+#brand::before {
+	background-image: url(../img/dove.png);
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+
+    padding-left: 30px;
+    width: 10px;
+    height: 20px;
+    content:"";
+}
+
+#brand:hover {
+	border-bottom: 2px solid #4CAF50;
+	font-weight: bold;
+}
+
+#nav ul a:hover {
+	border-bottom: 2px solid #212121;
+	background: #388E3C;
+}
+
+#titulo {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+main {
+    background: #fff;
+}
+
+
+footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+}
+
+/* Gallery Cards */
+
+.row .h1, .h2, .h3, h1, h2, h3 {
+	margin: 0;
+}
+
+.card {
+	background: rgba(83,109,254,.2);
+	width: 32%;
+	height: 500px;
+	margin: 5px 4px 5px 4px;
+	border-radius: 10px;
+	border-bottom: 2px solid rgba(83,109,254,.6);
+	float: left;
+	box-shadow: 2px 2px 8px 0px rgba(0,0,0,.5),
+		inset 1px 1px 1px rgba(0,0,0,.1);
+}
+
+.card img {
+	width: 100%;
+	height: auto;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.card-content {
+	padding: 0 10px;
+}
+
+.legend {
+	font-size: .5em;
+	display: inline-block;
+	width: 100%;
+}
+
+/* table */
+
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -12,20 +145,4 @@ td, th {
 
 tr:nth-child(even) {
     background-color: #dddddd;
-}
-
-body {
-    background-color: lightblue;
-}
-
-header {
-    background: lightgreen;
-    text-align: center;
-    padding: 0.5px;
-}
-
-nav a:hover {
-    background: yellow;
-    color: white;
-    border-bottom: 2px solid;
 }

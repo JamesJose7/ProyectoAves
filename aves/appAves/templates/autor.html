@@ -1,0 +1,32 @@
+{% extends "master.html" %}
+{% block titulo %}{{ autor.nombre }}{% endblock %}
+{% block titulo_pag %} Autor:  {{ autor.nombre }} {% endblock %}
+{% block contenido %}
+    <div class="container">
+        <div class="row">
+        <div class="col-md-10">
+            {% if autor %}
+                <div class="col-md-6">
+                    <h2> {{ autor.nombre }}</h2>
+                    <img src="https://vignette.wikia.nocookie.net/es.starwars/images/6/66/Qui-Gon_Jinn_SWFB.png/revision/latest?cb=20171101140644"
+                         alt="" class="img-responsive" height="200px" width="500px">
+                </div>
+                <div class="col-md-6">
+                <h2>Biografia:</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium blanditiis commodi culpa
+                        dolorum ducimus exercitationem magnam minima odio odit saepe tenetur vitae voluptate,
+                        voluptates.
+                        Facilis molestiae molestias suscipit velit voluptate.</p>
+
+                </div>
+                <a href=""> Trabajos relacionados</a>
+
+
+
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    </div>
+
+{% endblock %}

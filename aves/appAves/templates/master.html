@@ -8,9 +8,10 @@
     <title>{% block titulo %}{% endblock %} | Proyecto GP Aves</title>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" type="text/css" href="{% static '/static/css/style.css' %}">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static '/static/css/normalize.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/static/css/style.css' %}">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -25,7 +26,7 @@
 
 </head>
 <body>
-<nav class="navbar navbar-default">
+<nav id="nav" class="navbar navbar-default">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -36,25 +37,25 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Proyecto GP Aves</a>
+            <a id="brand" class="navbar-brand" href="#">Proyecto GP Aves</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
 
-                <li><a href="/aves/">Inicio</a></li>
-                <li><a href="/aves/listado/">Catalogo</a></li>
-                <li><a href="/aves/top/">Estadisticas</a></li>
+                <li><a href="{% url 'index' %}">Inicio</a></li>
+                <li><a href="{% url 'listado_aves' %}">Catalogo</a></li>
+                <li><a href="{% url 'top_autores' %}">Estadisticas</a></li>
                 <li><a href="">Mapa</a></li>
-                <li><a href="/aves/about/">About</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
             </ul>
 
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
 <header>
-    <h1> {% block titulo_pag %} {% endblock %}</h1>
+    <h1 id="titulo"> {% block titulo_pag %} {% endblock %}</h1>
 </header>
 <nav>
 
