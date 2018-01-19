@@ -5,9 +5,7 @@
     <div class="container">
         <div class="col-md-10">
             <div id="chart1">
-
             </div>
-
         </div>
     </div>
     <script type="text/javascript">
@@ -21,15 +19,12 @@
                 },
                 //beforeSend:function() {},
                 success: function (data) {
-
                     var autores = [];
                     var values = [];
                     for (var i = 0; i < 10; i++) {
-                        autores.push(data.autores.results[i].nombre)
-                        values.push(data.values.values[i].id_autor_id__count)
+                        autores.push(data.autores.results[i].nombre);
+                        values.push(data.values.values[i].id_autor_id__count);
                     }
-
-
                     //set up chart
                     var barPadding = 1;
                     var margin = {top: 20, right: 20, bottom: 200, left: 40},
@@ -50,16 +45,12 @@
                         .append("g")
                         .attr("transform",
                             "translate(" + margin.left + "," + margin.top + ")");
-
                     function create_table(data, x_values) {
-
                         // add scale in the range of data
                         x.domain(x_values.map(function (d) {
-
                             return d;
                         }));
                         y.domain([0, d3.max(data, function (d) {
-
                             return d;
                         })]);
                         // append the rectangles for the bar chart
@@ -71,7 +62,7 @@
                             .append("rect")
                             .attr("class", "bar")
                             .attr("x", function (d, i) {
-                                return i * (width / data.length);
+                                return i * (width / data.length)+15;
                             })
                             .attr("width", width / data.length - barPadding)
                             .attr("y", height)
@@ -106,7 +97,7 @@
                             })
                             .attr("x", function (d, i) {
                                 console.log(i);
-                                return i * (width / data.length) + 60;
+                                return i * (width / data.length)+ 45 ;
                             })
                             .attr("y", function (d) {
                                 return y(d) + 20;
