@@ -8,13 +8,15 @@
                 {% if list_aves %}
                     <div class="row ">
                     {% for ave in list_aves %}
-                        <div class="col-md-4">
-                            <h2> Nombre cientifico: {{ ave.nombre }}</h2>
-                            <h3>Especie: <i> {{ ave.especie }}</i></h3>
-                            <h3>Clase: {{ ave.clase }} | UICN: {{ ave.uicn }}  </h3>
-                            <h4>Autor: <a href="{% url 'autor' ave.id_autor_id %}">{{ ave.id_autor }}</a></h4>
+                        <div class="card">
                             <a href="{% url 'ave' ave.id_ave %}"><img src="/static/img/parte-del-ave.jpg" class="img-responsive" alt="{{ ave.nombre }} " hr></a>
 
+                            <div class="card-content">
+                                <h2><span class="legend">Nombre cientifico:</span> {{ ave.nombre }}</h2>
+                                <h3><span class="legend">Especie:</span> <i> {{ ave.especie }}</i></h3>
+                                <h3><span class="legend">Clase:</span> {{ ave.clase }} | UICN: {{ ave.uicn }}  </h3>
+                                <h4><span class="legend">Autor:</span> <a href="{% url 'autor' ave.id_autor_id %}">{{ ave.id_autor }}</a></h4>
+                            </div>
                         </div>
                     {% endfor %}
                 {% endif %}
