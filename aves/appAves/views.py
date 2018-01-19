@@ -2,8 +2,9 @@ from django.shortcuts import render
 from django.template import RequestContext
 from django.db.models import Count
 from django.views.decorators.csrf import csrf_exempt
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from appAves.models import *
+from django.core import serializers
 import json
 
 
@@ -81,7 +82,7 @@ def top_autores(request):
               context_instance=RequestContext(request))
 
 @csrf_exempt
-def funcion_ajax_buscador(request):
+def top_autores_view(request):
     """
     """
     if request.is_ajax() == True:
@@ -102,5 +103,17 @@ def about_view(request):
     """
     render about
     """
-
     return render(request, 'about.html', context_instance=RequestContext(request))
+
+def sacar_data(request):
+    """
+    sacar data
+    """
+    data = {
+        "personas":20,
+        "alumnos":120,
+    }
+
+    data_lugares = lugares.objects.all()
+    data_lugares = serializers.serialize('json',data_lugares)
+    return HttpResponse(data_lugares,content_type="application/json")

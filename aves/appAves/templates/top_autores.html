@@ -15,7 +15,7 @@
             console.log('llegando');
             $.ajax({
                 method: "post",
-                url: '{% url "appAves.views.funcion_ajax_buscador" %}',
+                url: '{% url "appAves.views.top_autores_view" %}',
                 data: {
                     'valor': 'test',
                 },
@@ -28,7 +28,7 @@
                         autores.push(data.autores.results[i].nombre)
                         values.push(data.values.values[i].id_autor_id__count)
                     }
-                    
+
 
                     //set up chart
                     var barPadding = 1;

@@ -12,9 +12,9 @@
                             <h2> Nombre cientifico: {{ ave.nombre }}</h2>
                             <h3>Especie: <i> {{ ave.especie }}</i></h3>
                             <h3>Clase: {{ ave.clase }} | UICN: {{ ave.uicn }}  </h3>
-                            <h4>Autor: <a href="{% url 'autor' ave.id_autor_id %}">{{ ave.id_autor }}</a></h4>
-                            <a href="{% url 'ave' ave.id_ave %}"><img src="/static/img/parte-del-ave.jpg" class="img-responsive" alt="{{ ave.nombre }} " hr></a>
 
+                            <a href="{% url 'ave' ave.id_ave %}"><img src="/static/img/parte-del-ave.jpg" class="img-responsive" alt="{{ ave.nombre }} " hr></a>
+<h4>Autor: <a href="{% url 'autor' ave.id_autor_id %}">{{ ave.id_autor }}</a></h4>
                         </div>
                     {% endfor %}
                 {% endif %}
