@@ -44,11 +44,11 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
 
-                <li><a href="/aves/">Inicio</a></li>
-                <li><a href="/aves/listado/">Catalogo</a></li>
-                <li><a href="/aves/top/">Estadisticas</a></li>
+                <li><a href="{% url 'index' %}">Inicio</a></li>
+                <li><a href="{% url 'listado_aves' %}">Catalogo</a></li>
+                <li><a href="{% url 'top_autores' %}">Estadisticas</a></li>
                 <li><a href="">Mapa</a></li>
-                <li><a href="/aves/about/">About</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
             </ul>
 
         </div><!-- /.navbar-collapse -->
