@@ -27,7 +27,7 @@ def listado_aves(request):
     """
         obtengo las aves
     """
-    aves = Ave.objects.all().order_by('nombre')[0:50]
+    aves = Ave.objects.all().order_by('nombre')[:50]
     titulo = "Galeria Aves"
     diccionario = {'list_aves': aves, 'titulo': titulo}
     return render(request, 'listado_aves.html', diccionario,
