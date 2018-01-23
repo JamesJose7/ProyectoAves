@@ -1,11 +1,10 @@
 {% extends "master.html" %}
 {% load staticfiles %}
-{% block titulo %}Bienvenidos{% endblock %}
 
 {% block contenido %}
     <div class="row">
-    <div class="col-md-10 col-md-offset-2">
-           <img src="{% static '/static/img/portada.png' %}" alt="">
+    <div class="index-header">
+           {% comment %}<img src="{% static '/static/img/portada.png' %}" alt="">{% endcomment %}
     </div>
     </div>
 

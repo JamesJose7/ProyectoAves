@@ -54,9 +54,11 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-<header>
-    <h1 id="titulo"> {% block titulo_pag %} {% endblock %}</h1>
-</header>
+{% if titulo %}
+    <header>
+        <h1 id="titulo"> {{ titulo }}</h1>
+    </header>
+{% endif %}
 <nav>
 
 </nav>
